@@ -4,22 +4,29 @@ const mongoose = require('mongoose')
 const EmailValidator=require('email-validator')
 const Validatemobile=require('validate-phone-number-node-js')
 
+var isValid = function (value) { 
+    if (typeof value === "undefined" || value === null) return false;
+    if (typeof value === "string" && value.trim().length === 0) return false;
+    return true; 
+  };
+
+
 const interCreation = async function (req, res) {
     try {
         const { name, email, mobile, collegeId } = req.body;
         if (!req.body) {
             res.status(400).send({ status: false, msg: "Please provide valid details" })
         }
-        if (!name) {
+        if (!isValid(name)) {
             res.status(400).send({ status: false, msg: "Please provide valid name" })
         }
-        if (!email) {
+        if (!isValid(email)) {
             res.status(400).send({ status: false, msg: "Please provide valid email" })
         }
-        if (!mobile) {
+        if (!isValid(mobile)) {
             res.status(400).send({ status: false, msg: "Please provide valid mobile number" })
         }
-        if (!collegeId) {
+        if (!isValid(collegeId)) {
             res.status(400).send({ status: false, msg: "Please provide valid college id" })
         }
     if(!EmailValidator.validate(email))
