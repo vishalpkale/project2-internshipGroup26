@@ -45,7 +45,7 @@ const getcollege = async function (req, res) {
     try {
         let collegename = req.query;
 
-        if (!(Object.keys(collegename).length > 0) /*|| (!(Object.values(collegename))>0)*/) {
+        if (Object.keys(collegename).length == 0 /*|| (!(Object.values(collegename))>0)*/) {
            return res.status(400).send({ status: false, msg: "Please provide name of the college" })
         }
 
