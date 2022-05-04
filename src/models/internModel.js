@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const ObjectId=mongoose.Schema.type.ObjectId
+const ObjectId=mongoose.Schema.ObjectId
+
 
 const interSchema = new mongoose.Schema({
     name: {
@@ -17,11 +18,11 @@ const interSchema = new mongoose.Schema({
         unique: true
     },
     collegeId: {
-        type: ObjectId,
+        type:ObjectId,
         ref: 'College'
     },
     isDeleted: {
-        type: boolean,
+        type: Boolean,
         default: false
     }
 },{timeseries:true})
