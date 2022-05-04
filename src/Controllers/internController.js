@@ -39,7 +39,7 @@ const interCreation = async function (req, res) {
     }
     catch (err) {
         console.log(err)
-        res.status(500).send({ status: false, msg:err.msg })
+        res.status(500).send({ status: false, msg:err.message })
     }
 }
 
