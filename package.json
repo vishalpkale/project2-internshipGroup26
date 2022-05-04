@@ -15,6 +15,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.2",
     "nodejs": "^0.0.0",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "validate-phone-number-node-js": "^0.0.1"
   }
 }
