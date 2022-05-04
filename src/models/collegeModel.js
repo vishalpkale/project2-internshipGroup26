@@ -1,4 +1,4 @@
-const { links } = require('express/lib/response')
+//const { links } = require('express/lib/response')
 const mongoose = require('mongoose')
 
 const collegeSchema = new mongoose.Schema({
@@ -13,7 +13,7 @@ const collegeSchema = new mongoose.Schema({
         required: true
     },
     logoLink: {
-        type: links,
+        type: String,
         required: true,
         
     },

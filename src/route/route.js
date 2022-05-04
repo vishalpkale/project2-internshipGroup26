@@ -10,8 +10,10 @@ const interController=require("../Controllers/internController")
 /////////////////////////////////////project2///////////////////////////////////
 
 //router.post("/functionup/colleges")
-
+router.post("/functionup/colleges",collegeController.collegeCreation)
 router.post("/functionup/interns",interController.interCreation)
+
+
 
 // router.get("/functionup/collegeDetails",collegeController.getcollege)
 
