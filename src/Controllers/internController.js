@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const EmailValidator=require('email-validator')
 const Validatemobile=require('validate-phone-number-node-js')
 
-const interController = async function (req, res) {
+const interCreation = async function (req, res) {
     try {
         const { name, email, mobile, collegeId } = req.body;
         if (!req.body) {
@@ -42,4 +42,4 @@ const interController = async function (req, res) {
     }
 }
 
-module.exports.interController = interController;
+module.exports.interCreation = interCreation;
