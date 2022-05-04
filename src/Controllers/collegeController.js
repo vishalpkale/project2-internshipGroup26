@@ -29,4 +29,27 @@ const collegeCreation = async function (req, res) {
     }
 }
 
-module.exports.collegeCreation=collegeCreation;
+
+
+const getcollege=async function(req,res){
+    try{
+         let collegeName=req.query;
+     let college=await collegeModel.findOne({name:collegeModel})
+     let colle_id=college._id
+     
+     let studentlist= await interModel.find({collegeId:colle_id}).select({_id:1,name:1,email:1,mobile:1})
+     let dataa={
+         "name":college.name,
+         "fullName":college.fullName,
+         "logoLink":college.logoLink,
+         "interests":studentlist
+     }
+     
+     res.status(200).send({data:dataa})
+ }
+ catch(err){
+     res.status(500).send({statu:false, msg:err.msg})
+ }
+ }
+
+module.exports={getcollege,collegeCreation}

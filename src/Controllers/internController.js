@@ -26,7 +26,7 @@ const interCreation = async function (req, res) {
     {
         res.status(400).send({ status: false, msg: "Please correct email formate" })
     }
-    if(!Validatemobile(mobile)){
+    if(!Validatemobile.validate(mobile)){
         res.status(400).send({ status: false, msg: "Please check mobile number is correct or not" })
     }
      const chkcollege=await collegeModel.findById(collegeId)
@@ -38,7 +38,8 @@ const interCreation = async function (req, res) {
         res.status(201).send({ status: true, data: createIntern })
     }
     catch (err) {
-        res.status(500).send({ status: false, msg: err.msg })
+        console.log(err)
+        res.status(500).send({ status: false, msg:err.msg })
     }
 }
 

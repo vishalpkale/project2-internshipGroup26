@@ -9,13 +9,17 @@ const interController=require("../Controllers/internController")
 
 /////////////////////////////////////project2///////////////////////////////////
 
-//router.post("/functionup/colleges")
+////////////////////creation of college/////////////////////
+
 router.post("/functionup/colleges",collegeController.collegeCreation)
+
+////////////////////creation of intern////////////////////
+
 router.post("/functionup/interns",interController.interCreation)
 
+/////////////////fetch college intern/////////////////
 
-
-// router.get("/functionup/collegeDetails",collegeController.getcollege)
+ router.get("/functionup/collegeDetails",collegeController.getcollege)
 
 
 module.exports=router;
