@@ -14,23 +14,23 @@ const collegeCreation = async function (req, res) {
     try {
         const { name, fullName, logoLink } = req.body;
         if (!req.body) {
-            res.status(400).send({ status: false, msg: "Please provide valid details" })
+          return  res.status(400).send({ status: false, msg: "Please provide valid details" })
         }
         if (!isValid(name)) {
-            res.status(400).send({ status: false, msg: "Please provide valid name" })
+           return res.status(400).send({ status: false, msg: "Please provide valid name" })
         }
         if (!isValid(fullName)) {
-            res.status(400).send({ status: false, msg: "Please provide full name" })
+          return  res.status(400).send({ status: false, msg: "Please provide full name" })
         }
         if (!isValid(logoLink)) {
-            res.status(400).send({ status: false, msg: "Please provide valid link" })
+          return  res.status(400).send({ status: false, msg: "Please provide valid link" })
         }
         let chkname=await collegeModel.findOne({name:name})
         if (chkname) {
-            res.status(400).send({ status: false, msg: "The college is already registered" })
+          return  res.status(400).send({ status: false, msg: "The college is already registered" })
         }
         const createCollege = await collegeModel.create(req.body)
-        res.status(201).send({ status: true, data: createCollege })
+       return res.status(201).send({ status: true, data: createCollege })
 
     }
     catch (err) {
@@ -46,14 +46,14 @@ const getcollege = async function (req, res) {
         let collegename = req.query;
 
         if (!(Object.keys(collegename).length > 0) /*|| (!(Object.values(collegename))>0)*/) {
-            res.status(400).send({ status: false, msg: "Please provide name of the college" })
+           return res.status(400).send({ status: false, msg: "Please provide name of the college" })
         }
 
         let name1 = Object.values(collegename)
         let college = await collegeModel.findOne({ name: name1 })
 
         if (!college) {
-            res.status(404).send({ status: false, msg: "no data found" })
+            return res.status(404).send({ status: false, msg: "no data found" })
         }
 
         let colle_id = college._id.toString()
