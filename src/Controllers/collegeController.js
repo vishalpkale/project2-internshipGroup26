@@ -9,8 +9,10 @@ var isValid = function (value) {
     return true; 
   };
 
+  
 
-const collegeCreation = async function (req, res) {
+
+const collegeCreation = async function (req, res) { 
     try {
         const { name, fullName, logoLink } = req.body;
         if (!req.body) {
@@ -25,6 +27,10 @@ const collegeCreation = async function (req, res) {
         if (!isValid(logoLink)) {
           return  res.status(400).send({ status: false, msg: "Please provide valid link" })
         }
+        if (!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%.\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%\+.~#?&//=]*)/.test(logoLink)) {
+          return  res.status(400).send({ status: false, msg: "Not a valid url" })
+        }
+
         let chkname=await collegeModel.findOne({name:name})
         if (chkname) {
           return  res.status(400).send({ status: false, msg: "The college is already registered" })
