@@ -6,10 +6,7 @@ const interController=require("../Controllers/internController")
 
 
 
-
-/////////////////////////////////////project2///////////////////////////////////
-
-////////////////////creation of college/////////////////////
+////////////////////creation of college//////////////////////////////////////////////
 
 router.post("/functionup/colleges",collegeController.collegeCreation)
 
@@ -17,7 +14,7 @@ router.post("/functionup/colleges",collegeController.collegeCreation)
 
 router.post("/functionup/interns",interController.interCreation)
 
-/////////////////fetch college intern/////////////////
+/////////////////fetch college intern/////////////////////////////////////////////////
 
  router.get("/functionup/collegeDetails",collegeController.getcollege)
 
